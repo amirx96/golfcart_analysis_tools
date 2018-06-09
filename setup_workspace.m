@@ -47,17 +47,17 @@ clear data;
 %% vehicle speed report
 data = finddata(S,'_pacmod_parsed_tx_vehicle_speed_rpt');
 if(~isempty(fieldnames(data)))
-%     [times idx] = unique(data.(1),'stable');
-%     dat = data.(8);
-%     pacmod_spd = timeseries(dat(idx)*0.44704,times,'Name','Pacmod Speed (m/s)'); % 0.44704 is conversion fro mph to m/s
-% %         pacmod_spd = timeseries(dat(idx),times,'Name','Pacmod Speed (m/s)');
-%     temp = [];
-
-    pacmod_spd = timeseries(data.(8),epoch2mat(data.(1)),'Name','Pacmod Speed (mph)');
-% for k = 2:length(pacmod_spd.data(1:end))
-%     temp(k) = trapz(pacmod_spd.time(1:k) - pacmod_spd.time(1),pacmod_spd.data(1:k));
-% end
-%     pacmod_distance = timeseries(temp',pacmod_spd.time,'Name', 'Pacmod Distance (m)');
+    [times idx] = unique(data.(1),'stable');
+    dat = data.(8);
+    pacmod_spd = timeseries(dat(idx),epoch2mat(times),'Name','Pacmod Speed (mph)'); % 0.44704 is conversion fro mph to m/s
+%         pacmod_spd = timeseries(dat(idx),times,'Name','Pacmod Speed (m/s)');
+% Not sure what above code does. Why do we want to remove repeat times -
+% Amir
+    temp = [];
+for k = 2:length(pacmod_spd.data(1:end))
+    temp(k) = trapz(pacmod_spd.time(1:k) - pacmod_spd.time(1),pacmod_spd.data(1:k).*0.44704); %%%%%%%%%% Integration for Distance. Remember to convert to m/s
+end
+    pacmod_distance = timeseries(temp',pacmod_spd.time,'Name', 'Pacmod Distance (m)');
  end
 clear data temp dat idx k times;
 %% accel_rpt 
