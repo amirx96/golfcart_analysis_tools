@@ -1,8 +1,6 @@
 %PLOT #4 - cmd_vel vs actual
 %INFO: Plot of commanded velocity vs actual
 
-
-
 if ~exist('cmd_vel')
     error('no cmd_vel loaded')
 end

@@ -2,7 +2,7 @@
 %INFO: Plots Pacmod speed vs. GPS speed. Up velocity in GPS speed is
 %neglected.
 
-if exist('gps')    
+if ~isempty('gps')    
     gps_speed = timeseries((gps.speed/0.4407),gps.time,'Name','GPS Speed (MPH)');
 else 
     error('GPS not loaded')
