@@ -3,7 +3,7 @@
 %neglected.
 
 if ~isempty('gps')    
-    gps_speed = timeseries((gps.speed/0.4407),gps.time,'Name','GPS Speed (MPH)');
+    gps_speed = timeseries((gps.speed),gps.time,'Name','GPS Speed (m/s)');
 else 
     error('GPS not loaded')
 end

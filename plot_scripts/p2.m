@@ -7,8 +7,9 @@ hold on
 plot(accel_rpt,'r')
 yyaxis right;
 plot(pacmod_spd,'b')
+plot(gps_speed,'g')
 xlabel 'Time(MM:SS)'
-legend('Throttle Cmd', 'Speed Rpt')
+legend('Throttle Cmd', 'Speed Rpt','GPS speed')
 title 'Speed/Throttle Report'
 datetick('x','MM:SS')
 grid;

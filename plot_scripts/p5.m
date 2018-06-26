@@ -7,7 +7,7 @@ if ~exist('cmd_vel')
 end
 
 hold on;
-plot(pacmod_spd) % convert to mph
+plot(pacmod_spd) % mph
 yyaxis right;
 plot(accel_cmd);
 title('')

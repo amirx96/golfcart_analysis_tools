@@ -6,8 +6,8 @@ if ~exist('cmd_vel')
 end
 
 hold on;
-plot(cmd_vel.Time,cmd_vel.Data(:,1)./0.447) % convert to mph
-plot(pacmod_spd);
+plot(cmd_vel.Time,cmd_vel.Data(:,1),'r') % convert to mph
+plot(pacmod_spd,'b');
 title('')
 ylabel('Speed [mph]')
 xlabel('Time [MM:SS]')
