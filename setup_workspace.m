@@ -16,7 +16,7 @@ else
 %     return
 end
 
-%% zed_odom
+%% zed_odomp7
 load_zed_odom
 %% corrimudata %imu data earlier from novatel was is m/s^2 per sample
 load_corrimudata
@@ -35,11 +35,14 @@ load_pacmod_as_tx_enable
  %% steer_rpt
  load_pacmod_parsed_tx_steer_rpt
 %% cmd_vel_with_limits
-load_cmd_vel_with_limits
+load_cmd_vel
  %% req_accel
 load_req_accel
 %% filtered accel
 load_filtered_accel
+
+%%
+load_lane_models
 %% end
 % clear S;
 issim = false;
